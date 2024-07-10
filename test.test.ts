@@ -1,20 +1,6 @@
-When starting multiple chain simulators in parallel, the port returned can be the one of a node.
+import { expect, test } from "vitest";
+import { FSWorld, LSWorld } from "xsuite";
 
-Note: The light simulnet (wrapper around the VM) doesn't have such issue.
-
-# How to reproduce
-
-```
-npm install
-
-npm run test
-```
-
-# The test
-
-The test ([./test.test.ts](./test.test.ts)):
-
-```
 test("FSWorld", async () => {
   await Promise.all(
     Array.from({ length: 80 }, async () => {
@@ -44,4 +30,3 @@ test("LSWorld", async () => {
     }),
   );
 });
-```
