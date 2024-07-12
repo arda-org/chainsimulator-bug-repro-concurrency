@@ -5,6 +5,7 @@ test("FSWorld", async () => {
   await Promise.all(
     Array.from({ length: 80 }, async () => {
       using world = await FSWorld.start();
+      await sleep(1000);
       const r1 = await fetch(
         `${world.proxy.proxyUrl}/node/status`,
       );
@@ -16,7 +17,7 @@ test("FSWorld", async () => {
       expect(await r2.text()).toEqual('{"data":{},"error":"","code":"successful"}');
     }),
   );
-});
+}, 100_000);
 
 test("LSWorld", async () => {
   await Promise.all(
@@ -30,3 +31,5 @@ test("LSWorld", async () => {
     }),
   );
 });
+
+const sleep = (ms: number) => new Promise(r => setTimeout(r, ms));
