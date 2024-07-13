@@ -4,7 +4,9 @@ import { FSWorld, LSWorld } from "xsuite";
 test("FSWorld", async () => {
   await Promise.all(
     Array.from({ length: 80 }, async () => {
-      using world = await FSWorld.start();
+      using world = await FSWorld.start({
+        // binaryPath: "path/to/binary",
+      });
       await sleep(1000);
       const r1 = await fetch(
         `${world.proxy.proxyUrl}/node/status`,
