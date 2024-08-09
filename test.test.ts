@@ -7,7 +7,6 @@ test("FSWorld", async () => {
       using world = await FSWorld.start({
         // binaryPath: "path/to/binary",
       });
-      await sleep(1000);
       const r1 = await fetch(
         `${world.proxy.proxyUrl}/node/status`,
       );
@@ -33,5 +32,3 @@ test("LSWorld", async () => {
     }),
   );
 });
-
-const sleep = (ms: number) => new Promise(r => setTimeout(r, ms));

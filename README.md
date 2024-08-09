@@ -1,3 +1,5 @@
+FIXED ✅
+
 When starting multiple chain simulators in parallel, the port returned can be the one of a node.
 
 Note: The light simulnet (wrapper around the VM) doesn't have such issue.
